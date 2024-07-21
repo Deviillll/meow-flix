@@ -1,16 +1,16 @@
 "use client";
 import { useContext, useEffect, useState } from 'react';
 import apiClient from "@/helper/apiClient";
-import MoviesCard from './MoviesCard'
+import MoviesCard from './MoviesCard';
 import { GenrexContext } from '@/context/GenrexContext';
+import { SearchContext } from '@/context/SearchContext';
 import { useRouter } from 'next/navigation';
-import { SearchContext } from "@/context/SearchContext";
 import Mypagination from './Mypagination';
 import Loading from './Loading';
 
 interface Movies {
     name: string;
-    title: string;
+    title?: string;
     poster_path?: string;
     overview?: string;
     release_date?: string;
@@ -26,20 +26,20 @@ interface Movies {
     video?: boolean;
 }
 
-const MoviesList = () => {
+const ShowList = () => {
+    const router = useRouter();
     //@ts-ignore
     const { setSearchText } = useContext(SearchContext);
-    const { genre } = useContext(GenrexContext);
     const [movies, setMovies] = useState<Movies[]>([]);
     const [loading, setLoading] = useState(true);
+    const { genre } = useContext(GenrexContext);
     const [pageNumber, setPageNumber] = useState(1);
-    const router = useRouter();
 
     const fetchMoviesList = async () => {
         try {
             setSearchText('');
             const params = genre ? { with_genres: genre } : {};
-            const res = await apiClient.get(`/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageNumber}&sort_by=popularity.desc`, { params });
+            const res = await apiClient.get(`/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${pageNumber}&sort_by=popularity.desc`, { params });
             if (res.data.results.length === 0) {
                 window.location.reload();
             }
@@ -71,7 +71,7 @@ const MoviesList = () => {
                     <>
                         <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4'>
                             {movies.map((movie: Movies) => (
-                                <div key={movie.id} onClick={() => { router.push(`/movie/${movie.id}`) }} className='cursor-pointer mt-2 sm:mt-3 md:mt-4 lg:mt-5'>
+                                <div key={movie.id} onClick={() => { router.push(`/shows/${movie.id}`) }} className='cursor-pointer mt-2 sm:mt-3 md:mt-4 lg:mt-5'>
                                     <MoviesCard movies={movie} />
                                 </div>
                             ))}
@@ -88,4 +88,4 @@ const MoviesList = () => {
     );
 };
 
-export default MoviesList;
+export default ShowList;

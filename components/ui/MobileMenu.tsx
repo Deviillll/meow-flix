@@ -2,10 +2,13 @@
 import {useState} from 'react'
 import { routes } from '@/constants/data'
 import Link from 'next/link'
+import Genere from '../Genere'
+import { usePathname } from "next/navigation";
 
 
 const MobileMenu = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const path = usePathname();
   return (
     <div>
     
@@ -29,15 +32,18 @@ const MobileMenu = () => {
 
 
 
-            <div className={`flex flex-col items-center justify-center h-screen transition-all ease-linear duration-200 delay-100  overflow-hidden bg-black/90 fixed top-14 left-0 z-50 ${isOpen ? "w-[60vw]":"w-[0px]"}`}>
+            <div className={`flex flex-col items-center justify-center space-y-5 h-[95vh] transition-all ease-linear duration-200 delay-100  overflow-hidden bg-black/95 fixed top-14 left-0 z-50 ${isOpen ? "w-[60vw]":"w-[0px]"}`}>
            
-            <div className="flex flex-col space-y-5 ">
+           
+            <div className="flex flex-col space-y-2 ">
+
                 {routes.map((route) => (
-                    <Link className='text-white font-medium text-md' href={route.path} key={route.name}>
+                    <Link className='text-white font-medium text-md'   onClick={()=>setIsOpen(false)} href={route.path} key={route.name}>
                         {route.name}
                     </Link>
                 ))}
             </div>
+            {path !== '/' && <div className=" mr-4 text-center font-medium text-md"  onClick={()=>setIsOpen(false)} > <Genere /></div>}
             </div>
         </div>
     </div>

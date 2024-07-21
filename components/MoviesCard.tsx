@@ -3,7 +3,7 @@ import { Card, CardContent } from './ui/card'
 import  Image  from 'next/image'
 
 interface Movies {
-    name?: string;
+    name: string;
     title?: string;
     poster_path?: string;
     overview?: string;
@@ -25,15 +25,35 @@ interface Movies {
 
 const MoviesCard = ({movies}: {movies: Movies}) => {
   return (
-    <div>
-        <Card className=' '>
+    <div className=''>
+        <Card className='border-0 rounded-md'>
             <div className=''>
                 <div>
-                    <Image width={100} height={100}  className='w-full object-fit h-72 hover:opacity-80 transition-all ease-in-out rounded-t-lg' src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt="movie" />
 
-                 <div className='py-4'>
+                   {
+                    movies.poster_path ? (
+                        <Image
+                        src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                        alt={movies.title? movies.title:movies.name}
+                        width={400}
+                        height={400}
+                        className='rounded-t-md'
+                        />
+                    ):(
+                        <Image
+                        src={`https://via.placeholder.com/500x750.png?text=${movies.title? movies.title:movies.name}`}
+                        
+                        alt={movies.title? movies.title:movies.name}
+                        width={500}
+                        height={750}
+                        className='rounded-t-md '
+                        />
+                    )
+                   }
+
+                 <div className='md:py-4 sm:py-2 py-1 bg-black text-white'>
                     
-                 <h3 className='text-sm font-medium text-center line-clamp-1 mt-2'>{movies.title? movies.title:movies.name}</h3>
+                 <h3 className='text-sm  font-semibold  line-clamp-1 mt-2'>{movies.title? movies.title:movies.name}</h3>
                        
                  </div>
               

@@ -6,7 +6,7 @@ const  page =  () => {
 
    
   return (
-    <div className="mt-32">
+    <div className="mt-24">
         <MoviesList/>
       
     </div>
