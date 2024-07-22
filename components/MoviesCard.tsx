@@ -28,7 +28,7 @@ const MoviesCard = ({movies}: {movies: Movies}) => {
     <div className=''>
         <Card className='border-0 rounded-md'>
             <div className=''>
-                <div>
+                <div className=''>
 
                    {
                     movies.poster_path ? (
@@ -37,7 +37,7 @@ const MoviesCard = ({movies}: {movies: Movies}) => {
                         alt={movies.title? movies.title:movies.name}
                         width={400}
                         height={400}
-                        className='rounded-t-md'
+                        className='rounded-t-md hover:opacity-90'
                         />
                     ):(
                         <Image
@@ -46,7 +46,7 @@ const MoviesCard = ({movies}: {movies: Movies}) => {
                         alt={movies.title? movies.title:movies.name}
                         width={500}
                         height={750}
-                        className='rounded-t-md '
+                        className='rounded-t-md hover:opacity-90 transition-opacity ease-linear'
                         />
                     )
                    }
