@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation"
 
 
-const page = ({params}:any) => {
+const Page = ({params}:any) => {
      const searchParams = useSearchParams()
      const season=searchParams.get('season')
      const episode=searchParams.get('episode')
@@ -24,4 +24,4 @@ const page = ({params}:any) => {
   )
 }
 
-export default page
+export default Page
