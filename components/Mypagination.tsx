@@ -13,7 +13,7 @@ const Mypagination = ({ pageNum, setPage }: any) => {
   return (
     <div>
         
-      <Pagination className="">
+      <Pagination className="mt-3 ">
         <PaginationContent className="text-white bg-black">
           {pageNum > 1 && (
             <>
