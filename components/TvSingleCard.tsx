@@ -41,6 +41,7 @@ const TvSingleCard = ({ movies }: { movies: Movies }) => {
             alt={movies.title ? movies.title : movies.name}
             width={500}
             height={700}
+            unoptimized={true}
             className="rounded-sm  md:w-[35vw] mx-auto h-[50vh] md:h-[60vh] lg:h-[63vh] "
           />
         ) : (
@@ -49,6 +50,7 @@ const TvSingleCard = ({ movies }: { movies: Movies }) => {
             alt={movies.title ? movies.title : movies.name}
             width={500}
             height={750}
+            unoptimized={true}
             className="rounded-sm  md:w-[35vw] mx-auto h-[50vh] md:h-[60vh]"
           />
         )}
