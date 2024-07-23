@@ -37,12 +37,13 @@ const MoviesCard = ({movies}: {movies: Movies}) => {
                         alt={movies.title? movies.title:movies.name}
                         width={400}
                         height={400}
+                        unoptimized={true}
                         className='rounded-t-md hover:opacity-90'
                         />
                     ):(
                         <Image
                         src={`https://via.placeholder.com/500x750.png?text=${movies.title? movies.title:movies.name}`}
-                        
+                        unoptimized={true}
                         alt={movies.title? movies.title:movies.name}
                         width={500}
                         height={750}

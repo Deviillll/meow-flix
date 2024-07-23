@@ -12,7 +12,7 @@ const Page = ({params}:any) => {
     const url=`https://vidsrc.to/embed/tv/${id}/${season}/${episode}`
   
   return (
-    <div className="">
+    <div className="my-20">
         <iframe className="w-screen h-screen" allow="autoplay; encrypted-media; picture-in-picture"
         allowFullScreen
         src={url}  >
