@@ -23,6 +23,13 @@ const nextConfig = {
             port: '',
             
           },
+          {
+            protocol: 'https',
+            hostname: 'via.placeholder.com',
+            port: '',
+            
+          },
+          
         ],
       },
     eslint: { ignoreDuringBuilds: true },

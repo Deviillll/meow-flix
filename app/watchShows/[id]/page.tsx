@@ -9,7 +9,7 @@ const Page = ({params}:any) => {
   
     
     const {id}=params
-    const url=`https://vidsrc.to/embed/tv/${id}/${season}/${episode}`
+    const url=`https://vidsrc.xyz/embed/tv/${id}/${season}/${episode}`
   
   return (
     <div className="my-20">

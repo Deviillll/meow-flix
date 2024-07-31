@@ -3,8 +3,8 @@
 const page = ({params}:any) => {
   
     const {id}=params
-    const url=`https://vidsrc.to/embed/movie/${id}`
-  
+    const url=`https://vidsrc.xyz/embed/movie/${id}`
+  //const url=` https://multiembed.mov/?video_id=${id}&tmdb=1`
   return (
     <div className="my-20">
         <iframe className="w-screen h-screen" allow="autoplay; encrypted-media; picture-in-picture"

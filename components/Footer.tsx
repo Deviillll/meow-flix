@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 
+
 const Footer = () => {
   return (
     <div className='bg-black border-t '>
+      
         <footer className="text-white body-font">
   <div className="container px-5 md:py-8 py-4 mx-auto flex items-center sm:flex-row flex-col">
     <Link href={"/"} className="flex title-font font-medium items-center md:justify-start justify-center text-red">
