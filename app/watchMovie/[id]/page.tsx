@@ -3,7 +3,7 @@
 const page = ({params}:any) => {
   
     const {id}=params
-    const url=`https://vidsrc.xyz/embed/movie/${id}`
+    const url=`https://vidsrc-embed.ru/embed/movie/${id}`
   //const url=` https://multiembed.mov/?video_id=${id}&tmdb=1`
   return (
     <div className="my-20">
